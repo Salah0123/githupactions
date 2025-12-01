@@ -11,3 +11,9 @@ jobs:
     steps:
       - name: Print welecome message
         run: echo "welcome to our first Github actions Workflow"
+
+      - name: Chackout repository
+        uses: actions/checkout@v6.0.0
+
+      - name: List trepository files
+        run: ls -la
