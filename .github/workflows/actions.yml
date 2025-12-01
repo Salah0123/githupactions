@@ -1,0 +1,28 @@
+on:
+  workflow_dispatch:
+
+
+jobs:
+  actions-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6.0.0
+        with:
+          name: Ahmed
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  hybrid_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run a command in ubuntu VW
+        run: echo "This runs on the Ubuntu VM"
+
+      - name: Run inside an Alpine container
+        uses: docker://alpine:3.14
+        with: 
+          entrypoint: /bin/sh
+          args: "-c \"echo 'This runs inside an Alpine container'\""
+      - name: "Run another command in Ubuntu VM"
+        run: echo "Back to the VM"
