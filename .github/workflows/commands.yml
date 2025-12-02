@@ -21,3 +21,4 @@ jobs:
             echo "::debug::config.yaml exists"
           else
             echo "::error::config.yaml is missing"
+          fi
