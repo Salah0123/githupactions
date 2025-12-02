@@ -14,7 +14,10 @@ jobs:
       - name: Set API key
         run: echo "API_KEY=123456789" >> $GITHUB_ENV
       - name: Use API Key
-        run: echo "Using API Key $API_KEY"
+        run: |
+          echo "Using API Key $API_KEY"
+          echo "::add-mask::$API_KEY"
+          echo "Using API Key $API_KEY"
       - name: Check if a file exists
         run: |
           if [ -f "config.yaml" ]; then
