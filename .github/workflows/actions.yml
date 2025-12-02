@@ -26,3 +26,9 @@ jobs:
           args: "-c \"echo 'This runs inside an Alpine container'\""
       - name: "Run another command in Ubuntu VM"
         run: echo "Back to the VM"
+  dockerized_job:
+      runs-on: ubuntu-latest
+      container: node:20
+      steps:
+          - run: node --version
+          - run: echo "This job runs inside container"
